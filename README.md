@@ -1,13 +1,16 @@
 # Scripts for office automation
-Full disclosure: I am lazy, so I try to make my pc do all the work. Here it's what I came up with.
+I mostly work in an office environment (windows, email, word processing, etc.). I have *a lot* of retetitive tasks, so I try to automate most of the trivial tasks.
 
-Most of it is for [Espanso](https://espanso.org/), a wonderful cross platform application for text expanding by [Federico Terzi](https://federicoterzi.com/).
+Most of it is performed by [Espanso](https://espanso.org/), a wonderful cross platform application for text expanding by [Federico Terzi](https://federicoterzi.com/).
+
+I use it and some phyton scripting.
 
 # What's in there?
-You write in [markdown](https://daringfireball.net/projects/markdown/)? Or even better, you use [Pandoc](https://pandoc.org/)? There are some shortcuts to simplify your life.
+* a collection of [markdown](https://daringfireball.net/projects/markdown/) templates, automated by Espanso. I use [Pandoc](https://pandoc.org/)'s flavour because I think it's complete.
 
-You write a lot of emails, text and so on? Look inside, and find something useful, for example a shortcut to start your greeting with the correct time-related formula (Good Morning, good evening), based on your pc clock.
+* shortcuts for dealing with other tasks like writing emails (a time-of-the-day aware shortcut for greetings).
 
 ## Installation
-Espanso: simply download the yml file inside your .espanso/match directory. Obviously python files go to: .espanso/scripts directory
+You have to install Espanso at least and possibly Python too (for the scripts).
+Simply download the yml file inside your .espanso/match directory. Obviously python files go to: .espanso/scripts directory
 
