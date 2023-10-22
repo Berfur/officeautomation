@@ -1,7 +1,42 @@
-# Here some shortcuts to easily write in markdown
+
+# Snippets for working with Markdown/Pandoc
+
+# Pandoc Header, too much options?
+
+matches:
+
+  - trigger: "\\panhead"
+    replace: |
+             ---
+             title:  'This is the title: it contains a colon'
+             author:
+             - {{nome}}
+             keywords: [nothing, nothingness]
+             date: {{today}}
+             subject:
+             description:
+             category:
+             lang: it
+             documentclass: article; book; report
+             classoption:
+             - twocolumn
+             - landscape
+             papersize: a4
+             abstract: |
+                       This is the abstract.
+
+                       It consists of two paragraphs.
+             ---
+    vars:
+      - name: today
+        type: match
+        params:
+          trigger: "\\date"
+
+    word: true
 
 # markdown table
-  - trigger: ":table"
+  - trigger: "\\table"
     replace: |
              | $|$header | header |
              |  ---   |   ---  |
@@ -9,7 +44,7 @@
     word: true
 
 # pandoc table. Created by the most complicated pattern
-  - trigger: ":pantable"
+  - trigger: "\\pantable"
     replace: |
              +---------------------+-----------------------+
              | Location            | Temperature 1961-1990 |
@@ -23,8 +58,7 @@
              +---------------------+-------+-------+-------+
     word: true
 
-# I want small notes to show in italic inside square brackets
-
-  - trigger: ":nt"
+# Piccolo snippet perché voglio le note in corsivo tra parentesi quadre
+  - trigger: "\\nt"
     replace: "*[$|$]*"
     word: true

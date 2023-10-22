@@ -1,0 +1,33 @@
+# PERSONALIZZAZIONE
+# Per personalizzare il file sulla singola persona basta cambiare i valori delle variabili globali
+#
+# Cambiare i valori tra virgolette "" e poi salvare il file
+
+global_vars:
+  - name: nome
+    type: echo
+    params:
+      echo: "John Lackland"
+  - name: cellulare
+    type: echo
+    params:
+      echo: "555 9817393"
+  - name: email
+    type: echo
+    params:
+      echo: "john.lackland@oxford.uk"
+  - name: indirizzo
+    type: echo
+    params:
+      echo: ""
+  - name: joblink
+    type: echo
+    params:
+      echo: "https://conscriptions.oxford.uk/jobs/send-cv"
+  - name: lnkd
+    type: echo
+    params:
+      echo: "My LinkedIn is: www.linkedn.com/realking"
+
+## FINE PERSONALIZZAZIONE
+

@@ -1,0 +1,34 @@
+# Formule di saluto. Iniziali o finali.
+
+
+matches:
+
+  - trigger: "\\cs"
+    replace: "Cordiali Saluti"
+    word: true
+
+# Le due formule che seguono usano uno script python per generare un saluto che dipende dall'ora del
+# giorno.
+
+  - trigger: "\\bf"
+    replace: "{{output}} sig.ra $|$,"
+    vars:
+      - name: output
+        type: script
+        params:
+          args:
+            - python
+            - "%CONFIG%/scripts/bg.py"
+    word: true
+
+  - trigger: "\\bm"
+    replace: "{{output}} sig. $|$,"
+    vars:
+      - name: output
+        type: script
+        params:
+          args:
+            - python
+            - "%CONFIG%/scripts/bg.py"
+    word: true
+
