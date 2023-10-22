@@ -31,5 +31,5 @@ Sometimes triggers doesn't work if you start tipying in the beginning of the tex
 
 ## Installation
 You have to install Espanso at least and possibly Python too (for the scripts).
-Simply download the yml file inside your .espanso/match directory. Obviously python files go to: .espanso/scripts directory
+Simply download the yml file inside your .espanso/match directory. Obviously python files go to: .espanso/scripts directory.
 
