@@ -1,0 +1,157 @@
+# espanso match file created for work
+# Autore: Ruggero Furlanetto (furlanr@gmail.com)
+# Versione: 0.1
+# Data: 05/01/2023
+# Update: 08/01/2024
+#
+# Installazione:
+# Per usare questo file bisogna avere installato "Espanso".
+# Il file va posizionato in:
+# $Cartella_Espanso\.espanso\match\
+#
+# Uso:
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+#
+# Reserved characters: ' " [] {} > | * & ! % # ` @
+#
+# attenzione agli spazi, devono essere corretti per indentare il testo
+
+# Dipendenze files: variables.yml
+
+global_vars:
+  - name: "helpricercaeselezione"
+    type: echo
+    params:
+      echo: "Specifici per il lavoro di Ricerca e Selezione:\n .db = stringa database\n .db1 = richiesta iscr. db\n .cell = cellulare\n .@ = email\n .ind = indirizzo\n .me = nome\n :profilo+nome. = profilo\n :off+nome. = proposta generica al cand.\n .annuncio = ann. di lavoro"
+
+matches:
+
+  - trigger: ".db1"
+    replace: "La prego prima di registrarsi al nostro database.\n{{joblink}}"
+    word: true
+
+  - trigger: ".db"
+    replace: "{{joblink}}"
+    word: true
+
+  - trigger: ".cd"
+    replace: "{{nome}} {{mydate}}: $|$"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d/%m/%Y"
+    word: true
+
+  - trigger: ".cell"
+    replace: "{{cellulare}}"
+    word: true
+
+  - trigger: ".@"
+    replace: "{{email}}"
+    word: true
+
+  - trigger: ".ind"
+    replace: "{{indirizzo}}"
+    word: true
+
+  - trigger: ".me"
+    replace: "{{nome}}"
+    word: true
+
+#
+# Scheletro di profilo per l'azienda
+# Attenzione, viene usata la sintassi markdown per facilitare la formattazione ("markdown here" markor e editor compatibili)
+#
+
+  - regex: ":profilo(?P<candidato>.*)\\."
+    replace: |
+               {{nome}} {{oggi}} ($|$): {{candidato}}
+               Descrizione per il cliente:
+               
+               
+               
+               **ESPERIENZE**:
+               
+               **FORMAZIONE**:
+               
+               **COMPETENZE LINGUISTICHE**:
+               Inglese:
+               
+               **SKILLS**:
+               
+               **ASPETTI RETRIBUTIVI**:
+    vars:
+      - name: oggi
+        type: date
+        params:
+          format: "%d/%m/%Y"
+    word: true
+
+# template di proposta creato per linkedin.
+  - regex: ":off(?P<person>.*)\\."
+    replace: |
+             Buongiorno {{person}},
+               la contatto in quanto ritengo di avere una proposta che potrebbe essere in linea con le sue caratteristiche e interessante per la sua carriera.
+
+             Sto lavorando per una azienda che è
+
+             Stanno cercando una persona che 
+
+             Il link alla posizione (per raccogliere la sua privacy) è questo: {{joblink}}
+
+             Possiamo entrare in contatto?
+
+             Se per caso la proposta non fosse di suo interesse (per posizione o momento professionale) potrebbe segnalarmi qualcuno di adatto?
+
+             La ringrazio e le auguro una buona giornata
+    word: true
+
+# template per annuncio di lavoro
+# da cambiare con HTML puro
+# html: '<p>But <span style="color: #ce181e;"><span style="font-size: x-large;">this</span></span> one is <span style="color: #81d41a;"><span style="font-family: Arial, sans-serif;">even richer</span></span>!</p>'
+# automatizzare un poco? Variabilizzare?
+  - trigger: ".annuncio"
+    replace: |
+             Società e Divisione - seleziona per azienda cliente settore un/a:
+
+             TITOLO JOB
+
+             Che tipo di azienda è (dimensioni, struttura, clima, cultura)
+
+             La persona scelta sarà inserita all'interno di ...... e si occuperà delle seguenti mansioni:
+             *
+             *
+             *
+             
+             Si richiede:
+             *
+             *
+             
+             Disponibilità lavoro: (richieste specifiche del cliente)
+             
+             Si offre:
+             * RAL
+             * BENEFIT
+             
+             Luogo di Lavoro: .....
+
+             L’offerta si rivolge a candidati ambosessi, nel rispetto del Codice delle pari opportunità D.Lgs. 11 aprile 2006, N. 198 e ss.mm.ii.. I Candidati sono invitati a leggere l'informativa sul trattamento dei dati personali alla pagina:
+    word: true
+#
+# Ricordarsi di aggiungere gli shortcut nelle variabili dei relativi files e poi aggiungere la variabile qui se manca
+#
+  - trigger: ".help"
+    replace: |
+             ------------------------------------------------------------------
+             {{help}}
+             {{helpricercaeselezione}}
+             {{helpcharacters}}
+             {{helpautocorrect}}
+             {{helpmarkdown}}
+             {{helpmasks}}
+             {{helpbase}}
+             {{helpgreetings}}
+             ------------------------------------------------------------------
+    word: true

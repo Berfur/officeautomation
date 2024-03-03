@@ -1,0 +1,177 @@
+# File for various masks
+#
+
+# RAL Evaluation
+
+global_vars:
+  - name: "helpmasks"
+    type: echo
+    params:
+      echo: "Maschere:\n .ral = raccolta ral\n .app = appuntamento con azienda\n .appi = conferma videocolloquio\n .inviop = invio profilo per azienda"
+
+
+matches:
+
+  - trigger: ".ral"
+    replace: "Inquadrato al livello {{form.livello}} del contratto {{form.contratto}}\nRetribuzione {{form.ral}} € {{form.unit}}. Premi {{form.mbo}}\nBenefit: {{form.benefit}}, welfare {{form.welfare}}.\nPreavviso di: {{form.preavviso}}\nDisponibilità per appuntamento: {{form.dispon}}\nAltre proposte: {{form.proposte}}"
+    vars:
+      - name: "form"
+        type: form
+        params:
+          layout: "Pacchetto retributivo Attuale o Desiderato\nLivello [[livello]]\nContratto [[contratto]]\nRetribuzione [[ral]] [[unit]]\nMBO [[mbo]]\nWelfare [[welfare]]\nBenefits [[benefit]]\nPreavviso [[preavviso]]\nDisp. Appuntamento [[dispon]]\nAltre proposte [[proposte]]"
+          fields:
+            livello:
+              multiline: false
+              default: "1°"
+            contratto:
+              multiline: false
+              default: "Det/Ind Metalmeccanico"
+            ral:
+              multiline: false
+              default: "1000"
+            unit:
+              type: choice
+              values: |
+                Lordi Annui
+                Netti Mensili
+                Lordi Mensili
+                Lordi Orari
+                Netti Orari
+            mbo:
+              multiline: false
+              default: "Quali/Quant"
+            welfare:
+              multiline: false
+              default: "€ 200"
+            benefit:
+              multiline: true
+              default: "auto, cellulare, pc, buoni pasto (€ ), mensa interna, smart working (), assicurazione sanitaria, altro"
+            preavviso:
+              multiline: false
+              default: "30 giorni trattabili"
+            dispon:
+              multiline: false
+              default: "la prossima settimana"
+            proposte:
+              multiline: false
+              default: "Sta valutando"
+
+
+
+# Snippet ideato e potenziato da Chiara Bonato 
+
+  - trigger: ".app"
+    replace: |
+              Buongiorno {{form.greetings}} {{form.name}},
+                 le confermo l'appuntamento con l'azienda {{form.company}} per il giorno {{form.day}} alle ore {{form.hour}} presso la loro sede di {{form.address}}.
+               
+              L'incontro si svolgerà con il {{form.sesso}} {{form.referente}}
+               
+              Se vuole, potrebbe essere utile prepararsi all'incontro visitando il loro sito internet: {{form.site}}.
+               
+              La prego poi di farmi sapere come è andata.
+               
+              Cordiali saluti
+    vars:
+      - name: "form"
+        type: form
+        params:
+          layout: "Saluti [[greetings]]\nNome Candidato [[name]]\nAzienda [[company]]\n Referente [[sesso]] [[referente]]\nIndirizzo [[address]]\nSito Internet:[[site]]\nGiorno [[day]]\nOra [[hour]]"
+          fields:
+            greetings:
+              type: choice
+              values: |
+                sig.
+                sig.ra
+              default: "sig."
+            site:
+               default: "www."
+            name:
+              multiline: false
+            company:
+              multiline: false
+            sesso:
+              type: choice
+              values: |
+                il sig.
+                la sig.ra
+              default: "il sig."
+            referente:
+              multiline: false
+            address:
+              multiline: false
+              default: "P.zza La Bomba e Scappa"
+            day:
+              multiline: false
+              default: "lunedì 29 marzo"
+            hour:
+              multiline: false
+              default: "hh:mm"
+    word: true
+
+# appuntamento interno. Prima stesura, Nicola.
+ 
+  - trigger: ".appi"
+    replace: |
+              Buongiorno {{form.name}}
+              
+               le confermo il video colloquio fissato in data {{form.day}} alle ore {{form.hour}}.
+               di seguito il link attraverso il quale registrarsi nella nostra piattaforma. Il passaggio è da svolgersi obbligatoriamente prima dell'incontro ed è finalizzato ad un corretto trattamento dei suoi dati dal punto di vista legale:
+               
+               {{joblink}}
+               
+               Sotto il link attraverso il quale prendere parte alla riunione:
+               
+    vars:
+      - name: "form"
+        type: form
+        params:
+          layout: "Nome Candidato [[name]]\nGiorno [[day]]\nOra [[hour]]"
+          fields:
+            name:
+              multiline: false
+            day:
+              multiline: false
+              default: "lunedì 29 marzo"
+            hour:
+              multiline: false
+              default: "hh:mm"
+    word: true
+
+# Maschera per email di invio profilo. Suggerimento Nader
+
+  - trigger: ".inviop"
+    replace: |
+             Buongiorno {{invio.titolo}} {{invio.persona}},
+             
+             le invio il profilo di {{invio.candidato}}, per la posizione in oggetto.
+             
+             {{invio.presentazione}}
+             
+             Avrebbe piacere di fissare un colloquio conoscitivo?
+             
+             Resto a disposizione per ogni necessità.
+             
+             {{nome}}
+    vars:
+      - name: "invio"
+        type: form
+        params:
+          layout: "Destinatario [[titolo]] [[persona]]\nNome Candidato [[candidato]]\nDescrizione\n[[presentazione]]"
+          fields:
+            titolo:
+              type: choice
+              values: |
+                sig.
+                sig.ra
+              default: "sig."
+            persona:
+              multiline: false
+              default: "Ciccio"
+            candidato:
+              multiline: false
+              default: "Pasticcio"
+            presentazione:
+              multiline: true
+              default: ""
+    word: true

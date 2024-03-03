@@ -1,0 +1,21 @@
+# file per ottenere i caratteri speciali
+
+global_vars:
+  - name: "helpcharacters"
+    type: echo
+    params:
+      echo: "Caratteri Speciali:\n .tilde = ~\n (c) = ©\n (tm) = ™"
+
+
+matches:
+  - trigger: ".tilde"
+    replace: "~"
+    word: true
+
+  - trigger: "(c)"
+    replace: "©"
+    word: true
+
+  - trigger: "(tm)"
+    replace: "™"
+    word: true

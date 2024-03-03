@@ -1,0 +1,81 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+# NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
+
+# But matches can also be dynamic:
+
+global_vars:
+  - name: "helpbase"
+    type: echo
+    params:
+      echo: "Funzioni Base:\n .data = la data di oggi\n .shell = saluti dalla shell\n .trig = crea un nuovo shortcut\n .newsnip = crea un nuovo shortcut (fancy)"
+
+
+matches:
+
+  # Print the current date
+  - trigger: ".date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # Print the output of a shell command
+  - trigger: ".shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
+
+  - trigger: ".trig"
+    replace: "\n  - trigger: \"\"\n  replace: \"\"\nword: true\n\n"
+    word: true
+
+# Crea shortcut personalizzati. OCCHIO:Da modificare il percorso.
+# Personalizzare
+#  
+  - trigger: ".newsnip"
+    replace: "{{output}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Inserisci la scorciatoia (Trigger) e poi il testo che vuoi espandere.
+            Se vuoi che funzioni anche all'interno di una parola composta (per ->perpetuo)
+            seleziona "false" dal menu Word.
+            Attenzione! Questo snippet funziona solo se hai modificato il percorso di salvataggio all'interno dello snippet stesso (vedi documentazione)
+            
+            Trigger [[grilletto]]
+            Replace [[sostituzione]]
+            Word: [[parola]]
+          fields:
+            sostituzione:
+              multiline: true
+            parola:
+              type: choice
+              values:
+                - "true"
+                - "false"
+              default: false
+      - name: output
+        type: shell
+        params:
+            cmd: "\"\n - trigger: $env:ESPANSO_FORM1_GRILLETTO\n   replace: $env:ESPANSO_FORM1_SOSTITUZIONE\n   word: $env:ESPANSO_FORM1_PAROLA\n\" | Out-File -FilePath .\personal.yml -Append -Encoding Utf8"
+#          cmd: "echo -e \"  - trigger: $ESPANSO_FORM1_TRIGGER\n    replace: $ESPANSO_FORM1_REPLACE\n    word: $ESPANSO_FORM1_WORD\n\" >> $(espanso path | grep 'Config:' | awk -F': ' '{print $2}')/match/base.yml && notify-send \"espanso\" \"New Replacement for $ESPANSO_FORM1_TRIGGER has been added\""
+    word: true
+

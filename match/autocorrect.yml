@@ -1,0 +1,22 @@
+# singoli snippet per avere alcune correzioni al volo
+#
+
+global_vars:
+  - name: "helpautocorrect"
+    type: echo
+    params:
+      echo: "Autocorrezioni:\n E' = È\n pò = po'\n LinkedIn viene corretto sempre a questa grafia"
+
+matches:
+  - trigger: "E'"
+    replace: "È"
+    word: true
+
+  - trigger: "pò"
+    replace: "po'"
+    word: true
+
+  - trigger: "linkedin"
+    replace: "LinkedIn"
+    propagate_case: true
+    word: true

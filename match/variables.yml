@@ -7,7 +7,7 @@ global_vars:
   - name: nome
     type: echo
     params:
-      echo: "John Lackland"
+      echo: "Ruggero Furlanetto"
   - name: cellulare
     type: echo
     params:
@@ -15,19 +15,23 @@ global_vars:
   - name: email
     type: echo
     params:
-      echo: "john.lackland@oxford.uk"
+      echo: "ruggero.furlanetto@qualeazienda.it"
   - name: indirizzo
     type: echo
     params:
-      echo: ""
+      echo: "Viale della Ricerca, 22, scala 5, interno 8, ufficio 4. Roma"
   - name: joblink
     type: echo
     params:
-      echo: "https://conscriptions.oxford.uk/jobs/send-cv"
+      echo: "inserisci la pagina di raccolta delle candidature/annunci"
   - name: lnkd
     type: echo
     params:
-      echo: "My LinkedIn is: www.linkedn.com/realking"
+      echo: "il tuo indirizzo linkedin"
+  - name: help
+    type: echo
+    params:
+      echo: "Abbreviazioni disponibili:\n .help = questo testo"
 
 ## FINE PERSONALIZZAZIONE
 

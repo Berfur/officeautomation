@@ -3,9 +3,15 @@
 
 # Pandoc Header, too much options?
 
+global_vars:
+  - name: "helpmarkdown"
+    type: echo
+    params:
+      echo: "Markdown Shortcuts:\n .panhead = header Pandoc\n .table = tabella mrkdn\n .pantable = tabella markdn Pandoc\n .nt = note\n .in = inline footnote"
+
 matches:
 
-  - trigger: "\\panhead"
+  - trigger: ".panhead"
     replace: |
              ---
              title:  'This is the title: it contains a colon'
@@ -31,12 +37,11 @@ matches:
       - name: today
         type: match
         params:
-          trigger: "\\date"
-
+          trigger: ".date"
     word: true
 
 # markdown table
-  - trigger: "\\table"
+  - trigger: ".table"
     replace: |
              | $|$header | header |
              |  ---   |   ---  |
@@ -44,10 +49,10 @@ matches:
     word: true
 
 # pandoc table. Created by the most complicated pattern
-  - trigger: "\\pantable"
+  - trigger: ".pantable"
     replace: |
              +---------------------+-----------------------+
-             | Location            | Temperature 1961-1990 |
+             | Location$|$         | Temperature 1961-1990 |
              |                     | in degree Celsius     |
              |                     +-------+-------+-------+
              |                     | min   | mean  | max   |
@@ -59,6 +64,11 @@ matches:
     word: true
 
 # Piccolo snippet perché voglio le note in corsivo tra parentesi quadre
-  - trigger: "\\nt"
+  - trigger: ".nt"
     replace: "*[$|$]*"
+    word: true
+
+# con questo snippet mi ricordo la sintassi per le note a piè di pagina (pandoc, non standard)
+  - trigger: ".in"
+    replace: "^[$|$]"
     word: true

@@ -1,16 +1,39 @@
 # Formule di saluto. Iniziali o finali.
 
+global_vars:
+  - name: "helpgreetings"
+    type: echo
+    params:
+      echo: "Saluti:\n .cs = Cordiali Saluti\n .ccss = Cordiali saluti e nome\n .rs o .r s = saluti random\n .bf = Saluti femminili\n .bm = Saluti maschili"
 
 matches:
 
-  - trigger: "\\cs"
+  - trigger: ".cs"
     replace: "Cordiali Saluti"
     word: true
+    
+  - trigger: ".ccss"
+    replace: "Cordiali saluti\n{{nome}}"
+    word: true
 
-# Le due formule che seguono usano uno script python per generare un saluto che dipende dall'ora del
-# giorno.
+# testing randomness
+# per saluti più variabili
 
-  - trigger: "\\bf"
+  - trigger: ".rs"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices:
+            - "Cordiali Saluti"
+            - "Distinti Saluti"
+            - "Saluti"
+    word: true
+
+# Le due formule che seguono usano uno script python per generare un saluto che dipende dall'ora del giorno.
+
+  - trigger: ".bf"
     replace: "{{output}} sig.ra $|$,"
     vars:
       - name: output
@@ -21,7 +44,7 @@ matches:
             - "%CONFIG%/scripts/bg.py"
     word: true
 
-  - trigger: "\\bm"
+  - trigger: ".bm"
     replace: "{{output}} sig. $|$,"
     vars:
       - name: output
@@ -31,4 +54,3 @@ matches:
             - python
             - "%CONFIG%/scripts/bg.py"
     word: true
-
