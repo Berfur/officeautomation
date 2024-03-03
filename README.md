@@ -1,53 +1,56 @@
-# Espanso Script for Office Automation
+# Script Espanso per l'Office Automation
 
-I wrote those script to ease the burden of monotonous tasks and repetitive texts.  
-It's use is very simple, you couple a trigger (usually a short text formula) to a more long and complex text, and when you type the short formula it gest automatically expanded.
+Ho scritto questi script per sollevarmi dal peso di compiti monotoni e testi ripetitivi.
+Il suo utilizzo è molto semplice, si accoppia un trigger (solitamente una formula di testo breve) a un testo più lungo e e quando si digita la formula questa viene espansa automaticamente.
 
-For example:
+Per esempio:
 
-.bf -> "Buongiorno sig.ra ,"
+.bf -> "Buongiorno sig.ra,"
 .cell -> "555 876523"
 
-The program is simple and the scripts can get more complex, even creating simple GUIs.
+Il programma è semplice e gli script possono diventare più complessi, creando anche semplici GUI.
+Cosa ancora più importante: funziona in ogni area di testo: programmi, web, gadget. È universale.
 
-## Use cases
+## Casi d'uso
 
-I use those script to compose texts: email, profiles, professional texts and almost anything that needs templating (useful when you write pandoc documents and excel formulas too).  
-It is useful even when you ordinarly write things you don't remember, for example the carreers page of your company (if you have to send it via whatsapp, email, LinkedIn it's easyer to write ".carpage" than "https://mydomain/work/carreers/" and it's less prone to error.
+Utilizzo questi script per comporre testi: e-mail, profili, testi professionali e quasi tutto ciò che necessita di template (utile anche quando scrivi documenti Pandoc e formule Excel).
+È utile anche quando solitamente scrivi cose che non ricordi, ad esempio la pagina carriere della tua azienda (se devi inviarla via whatsapp, email, LinkedIn è più facile scrivere ".carpage" che "https:// mydomain/work/carreers/" ed è meno soggetto a errori.
 
-I used to work with Word, Outlook and (any other program) but the truth is that it's very time consuming to set up a complete set of templates for every program (with it's own syntax and quirks). I find this system a lot better because you have everything at your fingertip. And all you have to do to set it up is to copy some files. Unbeatable.
+Lavoravo con Word, Outlook e (qualsiasi altro programma) ma la verità è che è molto dispendioso in termini di tempo impostare un set completo di modelli per ogni programma (con la propria sintassi e peculiarità). Trovo questo sistema migliore perché hai tutto a portata di mano. E tutto quello che devi fare per averlo pronto è copiare alcuni file. Imbattibile.
 
-### What can I find here ready to go:
+### Cosa posso trovare qui pronto per l'uso:
 
-* autocorrections (shortcuts to have the uppercase vocal È, special chars, look at the file to expand)
-* various types of greetings to start email (two automatically adapt to the hour of the day: Buongiorno/Buonasera)
-* markdown (some useful shortcuts, for real, learn markdown, you use it now if you type in Whatsapp, so it's here now)
-* masks: some useful GUIs to write email to candidates and customers
-* some templates for people who work in Search and Selection.
+Per avere un help completo, ti basta aprire un editor di testo (notepad, word, quello che vuoi) e digitare ".help". Ti fornirà una lista dettagliata. In sintesi:
 
-## Installation and Dependencies
-1. You need [Espanso](https://espanso.org). I use the portable version, so very easy on windows. Decompress the archive and follow the instructions to have the system up and running. On Linux I use a snap ('snap install Espanso')
-2. Download the scripts you are interested in (remember some scripts depend on other scripts, for example most depends from the "variable.yml" file), and put them in the "match" directory inside Espanso installation.
-3. Customize "variable.yml" with your data
-* OPTIONAL: .bf and .bm shortcuts depend on a usable python installation. If you want them you need to install python.
+* autocorrezioni (scorciatoie per avere la vocale È accentata maiuscola, caratteri speciali, guarda il file per espandere)
+* varie tipologie di auguri per avviare email (due si adattano automaticamente all'ora del giorno: Buongiorno/Buonasera)
+* markdown (alcune scorciatoie utili, davvero, impara il markdown, lo usi ora se digiti Whatsapp, quindi è qui ora)
+* maschere: alcune GUI utili per scrivere email a candidati e clienti
+* alcuni template per chi lavora nella Ricerca e Selezione.
 
-# The power of automation and templating
+## Installazione e dipendenze
+1. Hai bisogno di [Espanso](https://espanso.org). Io uso la versione portatile, quindi molto semplice su Windows. Decomprimi l'archivio e segui le istruzioni per avere il sistema attivo e funzionante. Su Linux utilizzo uno snap ("snap install Espanso")
+2. Scarica gli script che ti interessano (ricorda che alcuni script dipendono da altri script, ad esempio la maggior parte dipende dal file "variable.yml") e inseriscili nella directory "match" all'interno dell'installazione di Espanso.
+3. Personalizza "variable.yml" con i tuoi dati ( ti verrà fuori il mio nome :) )
+* FACOLTATIVO: le scorciatoie .bf e .bm dipendono da un'installazione Python utilizzabile. Se li vuoi devi installare Python.
 
-*Templating* is an effortless strategy to create patterns of information to simplify tasks (both simple and complex). It's mainly an intellectual task, and a very personal one. Some templates you can borrow, but you can't use them without understanding them. For example, you can copy a markdown or todo.txt template. But you can't use them if you don't know markdown or todo.txt syntax.  
-*Automation* is the practice to have a repetitive task (providing the correct template for example) the most effortless way possible. It does not matter if you automate electronically, mechanically, humanly or informatically. Do as you please, the best way for you. 
+# Il potere dell'automazione e dei modelli
 
-I mostly work in an office environment (windows, email, word processing, etc.). I have *a lot* of repetitive tasks, so I try to automate most of the trivial tasks.
+*Il templating* è una strategia semplice per creare modelli di informazioni. È principalmente un compito intellettuale e molto personale. Alcuni modelli possono essere presi in prestito, ma non è possibile utilizzarli senza capirli. Ad esempio, puoi copiare un modello markdown o todo.txt. Ma non puoi usarli se non conosci la sintassi markdown o il sistema todo.txt.
+*Automazione* è la pratica di svolgere un compito ripetitivo (ad esempio, fornire il modello corretto) nel modo più semplice possibile. Non importa se automatizzi elettronicamente, meccanicamente, umanamente o informaticamente. Fai come preferisci, nel modo migliore per te.
 
-## Templating old and new
-If you work with computers a lot you totally get how useful is to have templates for anything involving writing. Programming (skeletons or snippets) or word processing. A template is a very handy thing to set up.
-Problem is, as I stated before, you have to set it up every time you change your setup (word; programming environment and so on). Because every tool have its own template management system (not really, text files are always available).
-Espanso lets you leverage the power of text templates to every environment.
+Lavoro principalmente in ambiente d'ufficio (Windows, posta elettronica, elaborazione testi, ecc.). Ho *molte* attività ripetitive, quindi cerco di automatizzare la maggior parte delle attività più banali e a basso valore aggiunto senza perdere di qualità e di tocco personale.
 
-## Due Recognition
-Most of it is performed by [Espanso](https://espanso.org/), a wonderful cross platform application for text expanding by [Federico Terzi](https://federicoterzi.com/).
-Espanso has the advantage of not being binded to *one* application. It works in: word; excel; browsers; shell; everyplace you can type.
-Part is done trough Python (Espanso lacks conditions). But I am far for sufficient in working with it. It could be used way better, please, feel free to change everything you want and please share.
+## Modelli vecchi e nuovi
+Se lavori molto con i computer capisci quanto sia utile avere modelli per qualsiasi cosa coinvolga la scrittura. Programmazione (scheletri o frammenti) o elaborazione testi. Un modello è una cosa molto utile da configurare.
+Il problema è che, come ho affermato prima, devi configurarlo ogni volta che cambi sistema (Word; ambiente di programmazione e così via). Perché ogni strumento ha il proprio sistema di gestione dei modelli a volte diventa una fatica di Sisifo.
 
-# Problems
-Sometimes triggers doesn't work if you start tipying in the beginning of the text field. That is true for outlook for example. Just add a space at the start and you're on.
+Espanso invece ti consente di sfruttare la potenza dei modelli di testo in ogni ambiente, e con tutta la portabilità di una cartellina di file txt.
 
+##Riconoscimenti Dovuti
+La maggior parte del lavoro è eseguita da [Espanso](https://espanso.org/), una meravigliosa applicazione multipiattaforma per l'espansione del testo di [Federico Terzi](https://federicoterzi.com/).
+Espanso ha il vantaggio di non essere vincolato a *una* piattaforma. Funziona in: Word; Excel; browsers come Chrome, Firefox, Edge; Shell; ovunque sia possibile digitare.
+Una parte dei miei script viene eseguita tramite Python (Espanso non dispone di flussi condizionali), ma sono molto banali. Potrebbe essere usato molto meglio, sentiti libero di cambiare tutto ciò che vuoi e per favore condividi.
+
+# I problemi
+A volte i trigger non funzionano se inizi a digitare all'inizio del campo di testo. Questo è vero ad esempio per Outlook, se inizi la mail con un trigger non funziona. Basta aggiungere uno spazio all'inizio e il gioco è fatto.
