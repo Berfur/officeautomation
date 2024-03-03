@@ -13,16 +13,23 @@ The program is simple and the scripts can get more complex, even creating simple
 ## Use cases
 
 I use those script to compose texts: email, profiles, professional texts and almost anything that needs templating (useful when you write pandoc documents and excel formulas too).  
-It is useful even when you ordinarly write things you don't remember, for example 
+It is useful even when you ordinarly write things you don't remember, for example the carreers page of your company (if you have to send it via whatsapp, email, LinkedIn it's easyer to write ".carpage" than "https://mydomain/work/carreers/" and it's less prone to error.
 
-I used to work with Word, Outlook and (any other program) but the truth is that it's time consuming to set up a complete set of templates for every program (with it's own syntax and quirks). I find this system a lot better because you have everything at your fingertip. And all you have to do to set it up is to copy some files. Unbeatable.
+I used to work with Word, Outlook and (any other program) but the truth is that it's very time consuming to set up a complete set of templates for every program (with it's own syntax and quirks). I find this system a lot better because you have everything at your fingertip. And all you have to do to set it up is to copy some files. Unbeatable.
+
+### What can I find here ready to go:
+
+* autocorrections (shortcuts to have the uppercase vocal È, special chars, look at the file to expand)
+* various types of greetings to start email (two automatically adapt to the hour of the day: Buongiorno/Buonasera)
+* markdown (some useful shortcuts, for real, learn markdown, you use it now if you type in Whatsapp, so it's here now)
+* masks: some useful GUIs to write email to candidates and customers
+* some templates for people who work in Search and Selection.
 
 ## Installation and Dependencies
 1. You need [Espanso](https://espanso.org). I use the portable version, so very easy on windows. Decompress the archive and follow the instructions to have the system up and running. On Linux I use a snap ('snap install Espanso')
 2. Download the scripts you are interested in (remember some scripts depend on other scripts, for example most depends from the "variable.yml" file), and put them in the "match" directory inside Espanso installation.
 3. Customize "variable.yml" with your data
 * OPTIONAL: .bf and .bm shortcuts depend on a usable python installation. If you want them you need to install python.
-
 
 # The power of automation and templating
 
@@ -43,5 +50,4 @@ Part is done trough Python (Espanso lacks conditions). But I am far for sufficie
 
 # Problems
 Sometimes triggers doesn't work if you start tipying in the beginning of the text field. That is true for outlook for example. Just add a space at the start and you're on.
-
 
