@@ -13,6 +13,10 @@ Cosa ancora più importante: funziona in ogni area di testo: programmi, web, gad
 
 ![Esempio](./sampletxt.gif)
 
+per chi ama le GUI invece:
+
+![Esempio](./sampleGUI.gif)
+
 ## Casi d'uso
 
 Utilizzo questi script per comporre testi: e-mail, profili, testi professionali e quasi tutto ciò che necessita di template (utile anche quando scrivi documenti Pandoc e formule Excel).
