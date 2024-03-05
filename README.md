@@ -11,6 +11,8 @@ Per esempio:
 Il programma è semplice e gli script possono diventare più complessi, creando anche semplici GUI.
 Cosa ancora più importante: funziona in ogni area di testo: programmi, web, gadget. È universale.
 
+![Esempio](./sampletxt.gif)
+
 ## Casi d'uso
 
 Utilizzo questi script per comporre testi: e-mail, profili, testi professionali e quasi tutto ciò che necessita di template (utile anche quando scrivi documenti Pandoc e formule Excel).
