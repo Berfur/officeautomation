@@ -28,7 +28,7 @@ matches:
               default: "Det/Ind Metalmeccanico"
             ral:
               multiline: false
-              default: "1000"
+              default: "55000"
             unit:
               type: choice
               values: |
@@ -37,6 +37,7 @@ matches:
                 Lordi Mensili
                 Lordi Orari
                 Netti Orari
+                Netti Annui
             mbo:
               multiline: false
               default: "Quali/Quant"
@@ -45,7 +46,7 @@ matches:
               default: "€ 200"
             benefit:
               multiline: true
-              default: "auto, cellulare, pc, buoni pasto (€ ), mensa interna, smart working (), assicurazione sanitaria, altro"
+              default: "auto (full time, carburante, telepass), cellulare, pc, buoni pasto (€ ), mensa interna, smart working (), budget per formazione, stock options, assicurazione sanitaria, altro"
             preavviso:
               multiline: false
               default: "30 giorni trattabili"
